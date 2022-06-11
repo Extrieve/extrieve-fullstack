@@ -1,4 +1,4 @@
-package com.extrieve.employeemanagement.entity;
+package com.extrieve.employeemanagement.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

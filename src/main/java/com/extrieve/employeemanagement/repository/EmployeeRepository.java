@@ -8,5 +8,7 @@ import java.util.Collection;
 
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
-    Collection<Employee> findByFirstNameContaing(String firstName);
+
+    Collection<Employee> findByFirstName(String firstName);
+    Collection<Employee> findByFirstNameContainingIgnoreCase(String firstName);
 }

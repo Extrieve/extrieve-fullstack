@@ -1,5 +1,6 @@
 package com.extrieve.employeemanagement.repository;
 
+import com.extrieve.employeemanagement.exception.ResourceNotFoundException;
 import com.extrieve.employeemanagement.model.Employee;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,13 @@ class EmployeeRepositoryTest {
             System.out.println(employee.getFirstName() + '\n');
         }
 //        assertEquals(3, employeeList.size());
+    }
+
+    @Test
+    void findEmployeeById() {
+        Employee employee = employeeRepository.findById(100L).get();
+        System.out.println(employee.getId());
+        System.out.println(employee.getFirstName() + '\n');
     }
 
     @Test

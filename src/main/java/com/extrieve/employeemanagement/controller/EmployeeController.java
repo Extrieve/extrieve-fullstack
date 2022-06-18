@@ -55,4 +55,13 @@ public class EmployeeController {
         Employee updatedEmployee = employeeRepository.save(employee1);
         return ResponseEntity.ok().body(updatedEmployee);
     }
+
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> deleteEmployee(@PathVariable Long id) {
+        Employee employee = employeeRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Employee not found"));
+        employeeRepository.delete(employee);
+        return ResponseEntity.ok().body("Employee deleted successfully");
+    }
 }

@@ -17,12 +17,12 @@ public class EmployeeController {
     private EmployeeRepository employeeRepository;
     @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/employees")
-    public Collection<Employee> getAllEmployees() {
-        return employeeRepository.findAll();
+    public ResponseEntity<Collection<Employee>> getAllEmployees() {
+        return ResponseEntity.ok(employeeRepository.findAll());
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
-    @GetMapping("/employees/{id}")
+    @GetMapping("/employee/{id}")
     public ResponseEntity<Employee> getEmployeeById(@PathVariable Long id) {
         Employee employee = employeeRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Employee not found"));
         return ResponseEntity.ok().body(employee);

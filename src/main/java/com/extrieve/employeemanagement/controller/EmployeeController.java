@@ -29,7 +29,7 @@ public class EmployeeController {
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
-    @GetMapping("/employees/?firstName={firstName}")
+    @GetMapping("/employees/{firstName}")
     public Collection<Employee> getEmployeeByFirstName(@PathVariable String firstName) {
         Collection<Employee> employeeList = employeeRepository.findByFirstNameContainingIgnoreCase(firstName);
         if (employeeList.isEmpty()) {
